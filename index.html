@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ashfaq Ali Zardari Store</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <!-- Price Slider Stylesheets -->
+  <link rel="stylesheet" href="./vendor/nouislider/nouislider.css">
+  <!-- Swiper Slider Stylesheets -->
+  <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.css">
+  <!-- Leaflet Stylesheets -->
+  <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
+  <!-- Parallax Stylesheets -->
+  <link rel="stylesheet" href="./vendor/universal-parallax/universal-parallax.min.css">
+  <!-- Choices.js-->
+  <link rel="stylesheet" href="./vendor/choices.js/public/assets/styles/choices.css">
+  <!-- Lightbox-->
+  <link rel="stylesheet" href="./vendor/glightbox/css/glightbox.css">
+  <!-- Nouislider-->
+  <link rel="stylesheet" href="./vendor/nouislider/nouislider.min.css">
+  <!-- Theme stylesheet-->
+  <link rel="stylesheet" href="./css/style.sea.css" id="theme-stylesheet">
+  <!-- Custom stylesheet - for your changes-->
+  <link rel="stylesheet" href="./css/custom.css">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <!-- Google fonts-->
+  <link rel="stylesheet" href="./css/css?family=Poppins:300,400,500,700&amp;display=swap">
+</head>
+
+<body>
+  <div class="coming-full-screen dark-overlay bg-center bg-cover"
+    style="background-image: url('./img/parallax-1.jpg');">
+    <div class="container text-center text-white text-shadow overlay-content py-5">
+      <p class="social mb-5">
+        <a class="text-white text-hover-primary" href="https://www.facebook.com/ashfaqalizardariofficial" target="_blank" title="fb/ashfaqalizardariofficial"><i class="fab fa-facebook-f mx-2"> </i></a>
+        <a class="text-white text-hover-primary" href="https://github.com/ashfaqalizardariofficial" target="_blank" title="github/ashfaqalizardariofficial"><i class="fab fa-github mx-2"> </i></a>
+        <a class="text-white text-hover-primary" href="https://www.linkedin.com/in/ashfaqalizardari" target="_blank" title="linkedin/ashfaqalizardari"><i class="fab fa-linkedin mx-2"> </i></a>
+      </p>
+      <h1 class="mb-5">Ashfaq Ali Zardari Store is coming soon.</h1>
+      <h3 class="mb-5">We are still tweaking few details, stay tuned!</h3>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="row mb-5 gy-4">
+            <div class="col-lg-3 col-6">
+              <!-- countdown-->
+              <div class="countdown-item days-container">
+                <div class="days"></div>
+                <div class="countdown-label days-label">days</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6">
+              <div class="countdown-item hours-container">
+                <div class="hours"></div>
+                <div class="countdown-label hours-label">hours</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6">
+              <div class="countdown-item minutes-container">
+                <div class="minutes"></div>
+                <div class="countdown-label minutes-label">minutes</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-6">
+              <div class="countdown-item seconds-container">
+                <div class="seconds"></div>
+                <div class="countdown-label seconds-label">seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5 class="fw-light mb-3">Join our mailing list and we will let you know all the news.</h5>
+      <div class="row mb-5">
+        <div class="col-lg-6 mx-auto">
+          <form>
+            <div class="row">
+              <div class="col-sm-7 col-auto ms-auto">
+                <input class="form-control" type="text" id="email" placeholder="AshfaqAliZardariOfficial@gmail.com"
+                  aria-label="Recipient's email" aria-describedby="btnSubscription">
+              </div>
+              <div class="col-auto me-auto">
+                <button class="btn btn-primary" id="btnSubscription" type="button">subscribe</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <p>&copy;
+        <script>document.write(new Date().getFullYear());</script> Ashfaq Ali Zardari Store.
+      </p>
+    </div>
+  </div>
+  <!-- JavaScript files-->
+  <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./vendor/swiper/swiper-bundle.js"></script>
+  <script src="./vendor/nouislider/nouislider.min.js"></script>
+  <script src="./vendor/choices.js/public/assets/scripts/choices.js"></script>
+  <script src="./vendor/glightbox/js/glightbox.js"></script>
+  <script src="./vendor/masonry-layout/masonry.pkgd.min.js"></script>
+  <script src="./vendor/universal-parallax/universal-parallax.min.js"></script>
+  <script>new universalParallax().init({ speed: 3.0 });</script>
+  <script src="./js/theme.js"></script>
+  <script src="./js/js-cookie.js"> </script>
+  <script src="./js/firebse_config.js" type="module"></script>
+
+  <script>
+    const countDownClock = (number = 100, format = 'seconds') => {
+
+      const d = document;
+      const daysElement = d.querySelector('.days');
+      const hoursElement = d.querySelector('.hours');
+      const minutesElement = d.querySelector('.minutes');
+      const secondsElement = d.querySelector('.seconds');
+      let countdown;
+      convertFormat(format);
+
+
+      function convertFormat(format) {
+        switch (format) {
+          case 'seconds':
+            return timer(number);
+          case 'minutes':
+            return timer(number * 60);
+          case 'hours':
+            return timer(number * 60 * 60);
+          case 'days':
+            return timer(number * 60 * 60 * 24);
+        }
+      }
+
+      function timer(seconds) {
+        const now = Date.now();
+        // const then = now + seconds * 1000;
+        const then = Date.parse('06 Sep 2022 12:00:00 GMT+5');
+
+        countdown = setInterval(() => {
+          const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+          if (secondsLeft <= 0) {
+            clearInterval(countdown);
+            return;
+          };
+
+          displayTimeLeft(secondsLeft);
+
+        }, 1000);
+      }
+
+      function displayTimeLeft(seconds) {
+        daysElement.textContent = Math.floor(seconds / 86400);
+        hoursElement.textContent = Math.floor((seconds % 86400) / 3600);
+        minutesElement.textContent = Math.floor((seconds % 86400) % 3600 / 60);
+        secondsElement.textContent = seconds % 60 < 10 ? `0${seconds % 60}` : seconds % 60;
+      }
+    }
+
+
+    /*
+      start countdown
+      enter number and format
+      days, hours, minutes or seconds
+    */
+    countDownClock(8, 'days');
+
+
+  </script>
+  <script>
+    // ------------------------------------------------------- //
+    //   Inject SVG Sprite - 
+    //   see more here 
+    //   https://css-tricks.com/ajaxing-svg-sprite/
+    // ------------------------------------------------------ //
+    function injectSvgSprite(path) {
+
+      var ajax = new XMLHttpRequest();
+      ajax.open("GET", path, true);
+      ajax.send();
+      ajax.onload = function (e) {
+        var div = document.createElement("div");
+        div.className = 'd-none';
+        div.innerHTML = ajax.responseText;
+        document.body.insertBefore(div, document.body.childNodes[0]);
+      }
+    }
+    // this is set to BootstrapTemple website as you cannot 
+    // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
+    // while using file:// protocol
+    // pls don't forget to change to your domain :)
+    injectSvgSprite('./img/orion-svg-sprite.svg');
+
+  </script>
+  <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+  <link rel="stylesheet" href="./css/all-1.css">
+</body>
+
+</html>
